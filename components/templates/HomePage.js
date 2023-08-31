@@ -16,7 +16,7 @@ function HomePage() {
       .then(({ sortedTasksList }) => setTasksList(sortedTasksList));
   };
 
-  const { toDo, inProgress, review, done } = tasksList;
+  const { toDo, inProgress, review, done } = tasksList || {};
 
   return (
     <section className="w-full h-full">
