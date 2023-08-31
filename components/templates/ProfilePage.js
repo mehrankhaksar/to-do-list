@@ -1,6 +1,7 @@
 import React from "react";
 
 import { useRouter } from "next/router";
+
 import { toast } from "react-toastify";
 
 function ProfilePage({ email, firstName, lastName }) {
