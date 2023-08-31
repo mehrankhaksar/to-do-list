@@ -9,7 +9,7 @@ function AddTaskBtn({ textColor, bgColor }) {
     <div
       className={`w-full h-full grid justify-items-center content-center gap-2.5 ${textColor}`}
     >
-      <BiSolidAddToQueue size={50} className="hidden md:inline-block" />
+      <BiSolidAddToQueue size={50} className="hidden lg:inline-block" />
       <Link href="/add-task">
         <button
           className={`text-sm font-semibold text-white ${bgColor} py-1.5 px-3 rounded-sm`}
