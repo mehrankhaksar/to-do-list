@@ -20,7 +20,7 @@ function HomePage() {
 
   return (
     <section className="w-full h-full">
-      <div className="w-full h-full grid gap-5 text-white sm:grid-rows-2 sm:grid-cols-2 lg:grid-rows-1 lg:grid-cols-4">
+      <div className="w-full h-full grid grid-rows-4 gap-5 text-white sm:grid-rows-2 sm:grid-cols-2 lg:grid-rows-1 lg:grid-cols-4">
         <div className="home-task">
           <h4 className="bg-orange-500">To-Do</h4>
           {toDo ? (
