@@ -12,7 +12,7 @@ function Header() {
   };
 
   return (
-    <nav className="w-full relative text-white bg-blue-500 p-5 shadow-md">
+    <nav className="w-full relative text-white bg-blue-500 p-5 shadow-md z-50">
       <div className="max-w-7xl w-full flex justify-between items-center mx-auto">
         <Link href="/">
           <h2 className="text-2xl font-bold">To-Do List</h2>

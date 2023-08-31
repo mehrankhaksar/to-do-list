@@ -6,7 +6,7 @@ import { BiListCheck, BiSolidAddToQueue, BiUserCircle } from "react-icons/bi";
 
 function Aside() {
   return (
-    <aside className="w-fit h-full bg-white p-0.5 rounded-r-3xl shadow-md sm:p-5 xl:rounded-3xl">
+    <aside className="w-fit h-full bg-white p-0.5 rounded-r-3xl shadow-md z-50 sm:p-5 xl:rounded-3xl">
       <div className="w-full h-full flex flex-col items-center space-y-5 whitespace-nowrap">
         <h3 className="hidden sm:inline-block sm:text-xl sm:font-bold">
           Welcome 👋
