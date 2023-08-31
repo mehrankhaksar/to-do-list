@@ -21,7 +21,7 @@ function HomePage() {
   return (
     <section className="w-full h-full">
       <div className="w-full h-full grid gap-5 text-white sm:grid-rows-2 sm:grid-cols-2 lg:grid-rows-1 lg:grid-cols-4">
-        <div className="home-toDo">
+        <div className="home-task">
           <h4 className="bg-orange-500">To-Do</h4>
           {toDo ? (
             <ul>
@@ -39,7 +39,7 @@ function HomePage() {
             <AddTaskBtn textColor="text-orange-500" bgColor="bg-orange-500" />
           )}
         </div>
-        <div className="home-toDo">
+        <div className="home-task">
           <h4 className="bg-emerald-500">In Progress</h4>
           {inProgress ? (
             <ul>
@@ -58,7 +58,7 @@ function HomePage() {
             <AddTaskBtn textColor="text-emerald-500" bgColor="bg-emerald-500" />
           )}
         </div>
-        <div className="home-toDo">
+        <div className="home-task">
           <h4 className="bg-blue-500">Review</h4>
           {review ? (
             <ul>
@@ -77,7 +77,7 @@ function HomePage() {
             <AddTaskBtn textColor="text-blue-500" bgColor="bg-blue-500" />
           )}
         </div>
-        <div className="home-toDo">
+        <div className="home-task">
           <h4 className="bg-cyan-500">Done</h4>
           {done ? (
             <ul>
