@@ -15,8 +15,6 @@ export default Profile;
 export async function getServerSideProps({ req }) {
   const session = await getSession({ req });
 
-  const user = await User.findOne({ email: session.user.email });
-
   if (!session)
     return {
       redirect: {
@@ -24,6 +22,8 @@ export async function getServerSideProps({ req }) {
         permanent: false,
       },
     };
+
+  const user = await User.findOne({ email: session.user.email });
 
   return {
     props: { user: JSON.parse(JSON.stringify(user)) },

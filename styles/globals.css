@@ -67,7 +67,7 @@
 
   .form-input-field input,
   textarea {
-    @apply w-full bg-white py-1 px-2 border-2 border-solid border-gray-300 rounded-md shadow-sm;
+    @apply w-full text-sm bg-white py-1 px-2 border-2 border-solid border-gray-300 rounded-md shadow-sm;
   }
 
   .form-input-field textarea {
