@@ -2,6 +2,7 @@ import React from "react";
 
 import { getSession } from "next-auth/react";
 
+import connectDB from "@/utils/connectDB";
 import User from "@/models/User";
 
 import ProfilePage from "@/components/templates/ProfilePage";
@@ -14,6 +15,12 @@ export default Profile;
 
 export async function getServerSideProps({ req }) {
   const session = await getSession({ req });
+
+  try {
+    await connectDB();
+  } catch (err) {
+    console.log(err);
+  }
 
   const user = await User.findOne({ email: session.user.email });
 
