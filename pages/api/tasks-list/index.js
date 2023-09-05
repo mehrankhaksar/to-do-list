@@ -5,7 +5,6 @@ import User from "@/models/User";
 
 import sortTasksList from "@/utils/sortTasksList";
 
-
 export default async function handler(req, res) {
   const session = await getSession({ req });
 
@@ -30,7 +29,11 @@ export default async function handler(req, res) {
       .status(404)
       .json({ status: "failed", message: "User does not exist!" });
 
-  if (req.method === "POST") {
+  if (req.method === "GET") {
+    const sortedTasksList = sortTasksList(user.tasksList);
+
+    return res.status(200).json({ status: "success", sortedTasksList });
+  } else if (req.method === "POST") {
     const { title, text, status } = req.body;
 
     if (!title || !status)
@@ -51,10 +54,6 @@ export default async function handler(req, res) {
         .status(500)
         .json({ status: "failed", message: "Error in storing data in DB!" });
     }
-  } else if (req.method === "GET") {
-    const sortedTasksList = sortTasksList(user.tasksList);
-
-    return res.status(200).json({ status: "success", sortedTasksList });
   } else if (req.method === "PATCH") {
     const { id, status } = req.body;
 

@@ -37,6 +37,6 @@ export default async function handler(req, res) {
 
     res
       .status(201)
-      .json({ status: "success", message: "User created successfully!" });
+      .json({ status: "success", message: "Signed up successfully!" });
   }
 }

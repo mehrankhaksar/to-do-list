@@ -4,6 +4,8 @@ import { useRouter } from "next/router";
 
 import { useSession, signIn } from "next-auth/react";
 
+import { toast } from "react-toastify";
+
 import Form from "../modules/Form";
 
 function SignInPage() {
@@ -35,7 +37,32 @@ function SignInPage() {
       redirect: false,
     });
 
-    if (!error) router.replace("/");
+    console.log(error);
+
+    if (!error) {
+      toast.success("Logged in successfully!", {
+        position: "top-right",
+        autoClose: 2500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      router.replace("/");
+    } else {
+      toast.error(error, {
+        position: "top-right",
+        autoClose: 2500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
   };
 
   return (

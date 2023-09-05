@@ -4,6 +4,8 @@ import { useRouter } from "next/router";
 
 import { RadioGroup } from "@headlessui/react";
 
+import { toast } from "react-toastify";
+
 const allStatus = [
   {
     status: "toDo",
@@ -56,7 +58,30 @@ function AddTaskPage() {
     });
     const data = await res.json();
 
-    if (data.status === "success") router.push("/");
+    if (data.status === "success") {
+      toast.success(data.message, {
+        position: "top-right",
+        autoClose: 2500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      router.push("/");
+    } else {
+      toast.error(data.message, {
+        position: "top-right",
+        autoClose: 2500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
   };
 
   return (

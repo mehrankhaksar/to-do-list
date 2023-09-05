@@ -2,6 +2,8 @@ import React from "react";
 
 import { useRouter } from "next/router";
 
+import { toast } from "react-toastify";
+
 import Form from "../modules/Form";
 
 function SignUpPage() {
@@ -11,13 +13,12 @@ function SignUpPage() {
   });
 
   const router = useRouter();
-  
+
   const handleChange = (e) => {
     const { name, value } = e.target;
 
     setInputs({ ...inputs, [name]: value });
   };
-
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -29,7 +30,30 @@ function SignUpPage() {
     });
     const data = await res.json();
 
-    if (data.status === "success") router.replace("/sign-in");
+    if (data.status === "success") {
+      toast.success(data.message, {
+        position: "top-right",
+        autoClose: 2500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      router.replace("/sign-in");
+    } else {
+      toast.error(data.message, {
+        position: "top-right",
+        autoClose: 2500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
   };
 
   return (

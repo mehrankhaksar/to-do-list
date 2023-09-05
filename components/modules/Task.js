@@ -1,5 +1,7 @@
 import React from "react";
 
+import { BiTrash } from "react-icons/bi";
+
 function Task({ taskData, backBtn, nextBtn, fetchTasksList }) {
   const handleStatus = async (id, status) => {
     const res = await fetch("/api/tasks-list", {
@@ -14,10 +16,28 @@ function Task({ taskData, backBtn, nextBtn, fetchTasksList }) {
     }
   };
 
+  const handleDelete = async (id) => {
+    const res = await fetch(`/api/tasks-list/${id}`, {
+      method: "DELETE",
+    });
+    const data = await res.json();
+
+    if (data.status === "success") {
+      fetchTasksList();
+    }
+  };
+
   return (
     <div className="w-full bg-white p-2.5 rounded shadow-md">
-      <div className="flex flex-col space-y-2.5">
-        <h5 className="text-lg font-semibold">{taskData.title}</h5>
+      <div className="flex flex-col space-y-2.5 relative">
+        <button
+          className="absolute -top-3 -right-3 text-white bg-red-500 p-1.5 rounded-full cursor-pointer transition-colors hover:bg-red-600"
+          type="button"
+          onClick={() => handleDelete(taskData._id)}
+        >
+          <BiTrash />
+        </button>
+        <h5 className="text-lg font-semibold break-all">{taskData.title}</h5>
         <p className="text-sm font-medium text-justify break-all">
           {taskData.text}
         </p>
